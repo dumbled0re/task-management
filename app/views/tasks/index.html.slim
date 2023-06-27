@@ -1,0 +1,18 @@
+h1 タスク一覧
+
+/ new_task_pathは、tasksコントローラのnewアクションに対応するルーティングのURLを返す
+= link_to '新規作成', new_task_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th = Task.human_attribute_name(:name)
+      th = Task.human_attribute_name(:created_at)
+  tbody
+    / @tasksは、コントローラで定義したインスタンス変数(この時点でデータベースから検索している)
+    - @tasks.each do |task|
+      tr
+        td = task.name
+        td = task.created_at
+        td = link_to task.name, task_path(task)
