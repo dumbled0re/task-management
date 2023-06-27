@@ -9,6 +9,7 @@ table.table.table-hover
     tr
       th = Task.human_attribute_name(:name)
       th = Task.human_attribute_name(:created_at)
+      th
   tbody
     / @tasksは、コントローラで定義したインスタンス変数(この時点でデータベースから検索している)
     - @tasks.each do |task|
@@ -16,3 +17,4 @@ table.table.table-hover
         td = task.name
         td = task.created_at
         td = link_to task.name, task_path(task)
+        td = link_to '編集', edit_task_path(task), class: 'btn btn-primary mr-3'
