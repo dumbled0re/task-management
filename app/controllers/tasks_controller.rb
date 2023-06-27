@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   def index
+    # この時点ではまだ、データベースからデータを取得していない
+    @tasks = Task.all
   end
 
   def show
