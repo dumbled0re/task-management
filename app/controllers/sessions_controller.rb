@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # ログインしていない状態でログイン画面を表示する必要があるため、skip_before_actionを追加
+  skip_before_action :login_required
+
   def new
   end
 
