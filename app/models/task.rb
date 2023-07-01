@@ -6,6 +6,8 @@ class Task < ApplicationRecord
   # 検証前に実行されるコールバックメソッド(アプリでは使用しないのでコメントアウト)
   # before_validation :set_nameless_name
 
+  belongs_to :user
+
   private
 
   # def set_nameless_name
