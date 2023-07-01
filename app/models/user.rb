@@ -4,4 +4,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
+
+  # 1対多の関連付け
+  has_many :tasks
 end
