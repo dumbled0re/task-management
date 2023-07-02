@@ -7,6 +7,8 @@ class Task < ApplicationRecord
   # before_validation :set_nameless_name
 
   belongs_to :user
+  # recentと記載することで、Task.recentというメソッドを呼び出せるようになる
+  scope :recent, -> { order(created_at: :desc) }
 
   private
 
