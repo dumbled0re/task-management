@@ -1,7 +1,9 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+
   def index
-    # この時点ではまだ、データベースからデータを取得していない
-    @tasks = current_user.tasks
+    # タスクを新しい順に取得する
+    @tasks = current_user.tasks.order(created_at: :desc)
     # @tasks = Task.where(user_id: current_user.id)
   end
 
@@ -56,7 +58,13 @@ class TasksController < ApplicationController
   end
 
   private
+
   def task_params
     params.require(:task).permit(:name, :description)
+  end
+
+  # before_actionで共通化(show, edit, update, destroy)
+  def set_task
+    @task = current_user.tasks.find(params[:id])
   end
 end
