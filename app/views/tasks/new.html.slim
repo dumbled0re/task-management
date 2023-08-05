@@ -1,0 +1,8 @@
+h1 タスクの新規登録
+
+.nav.justify-content-end
+  = link_to '一覧', tasks_path, class: 'nav-link'
+
+/ _form.html.slimを呼び出す
+/ locals: { task: @task }で、_form.html.slim(パーシャル)内でtaskという変数を使えるようにしている
+= render partial: 'form', locals: { task: @task }
