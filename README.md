@@ -5,9 +5,6 @@ application up and running.
 
 Things you may want to cover:
 
-docker-compose -f docker/docker-compose.yml --env-file docker/.env up -d
-docker-compose -f docker/docker-compose.yml --env-file docker/.env down
-
 * Ruby version
 3.0.2
 
